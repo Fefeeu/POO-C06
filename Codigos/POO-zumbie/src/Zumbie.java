@@ -26,12 +26,25 @@ public class Zumbie {
         vida += cura;
     }
 
-    void mostrarVida(){
-        System.out.println("Vida atual de " + nome + " é " + vida);
-    }
-
     void causarDano(Zumbie alvo) {
         alvo.sofrerDano(dano);
         System.out.println(alvo.nome + " sofreu " + dano + " de dano de " + nome);
     }
+
+    boolean transferirVida(Zumbie alvo, int vida) {
+        if(vida > this.vida){
+            System.out.println("Transferencia invalida, Vida inferior ao pedido");
+            return false;
+        } else {
+            alvo.curarVida(vida);
+            this.sofrerDano(vida);
+            return true;
+        }
+    }
+
+    void mostrarVida(){
+        System.out.println("Vida atual de " + nome + " é " + vida);
+    }
+
+
 }
