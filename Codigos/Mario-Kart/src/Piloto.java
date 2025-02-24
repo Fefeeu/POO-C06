@@ -3,6 +3,6 @@ public class Piloto {
     boolean vilao;
 
     void soltarSuperPoder(){
-        System.out.println("Soltando Super Poder");
+        System.out.println( this.nome + " Soltando Super Poder...");
     }
 }

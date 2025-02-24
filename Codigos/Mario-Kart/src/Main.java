@@ -18,5 +18,9 @@ public class Main {
         System.out.println(kart2.nome);
         kart2.motor.mostrarInfo();
 
+        kart1.soltarTurbo();
+        kart1.fazerDrift();
+        kart1.piloto.soltarSuperPoder();
+
     }
 }
