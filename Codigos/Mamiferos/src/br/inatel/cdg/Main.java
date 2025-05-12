@@ -16,5 +16,6 @@ public class Main {
         Boi boi = new Boi("Bumba", 150);
         boi.emitirSom();
         boi.mostrarInfo();
+
     }
 }

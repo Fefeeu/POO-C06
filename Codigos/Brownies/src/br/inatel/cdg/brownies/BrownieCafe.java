@@ -1,7 +1,7 @@
 package br.inatel.cdg.brownies;
 
 public class BrownieCafe extends Brownie{
-    public BrownieCafe(String nome, double preco, String sabor) {
+    public BrownieCafe(String nome, int preco, String sabor) {
         super(nome, preco, sabor);
     }
 

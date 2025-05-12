@@ -1,11 +1,13 @@
 package br.inatel.cdg.brownies;
 
-public class Brownie {
+import java.io.Serializable;
+
+public abstract class Brownie implements Comparable<Brownie>{
     protected String nome;
-    protected double preco;
+    protected int preco;
     protected String sabor;
 
-    public Brownie (String nome, double preco, String sabor) {
+    public Brownie (String nome, int preco, String sabor) {
         this.nome = nome;
         this.preco = preco;
         this.sabor = sabor;
@@ -27,7 +29,13 @@ public class Brownie {
         + "\nSabor: " + sabor);
     }
 
-    public double getPreco() {
+    public int getPreco() {
         return preco;
+    }
+
+    // --------------- ESSE METODO É PRECISO PARA ORDERNAR NA COMPARABLE ---------------
+    public int compareTo(Brownie b){
+        return Integer.compare(this.preco, b.getPreco());
+        // return Integer.compare(b.getPreco(), this.preco); // ordem inversa
     }
 }

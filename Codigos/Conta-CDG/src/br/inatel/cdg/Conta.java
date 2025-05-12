@@ -1,21 +1,24 @@
 package br.inatel.cdg;
 
+import java.util.HashSet;
 import java.util.Scanner;
 
 public class Conta {
     private int numero;
     private float saldo;
     private float limite;
-    private Cliente[] cliente;
+    private HashSet<Cliente> clientes = new HashSet<>();
 
-    public Conta() {
+    public Conta(int numeroClientes) {
         Scanner sc = new Scanner(System.in);
         System.out.println("Numero de clientes: ");
-        int numeroClientes = sc.nextInt();
-        cliente = new Cliente[numeroClientes];
-        for(int i = 0; i < cliente.length; i++){
-            cliente[i] = new Cliente();
+
+        for(int i = 0; i < numeroClientes; i++){
+            clientes.add(new Cliente());
+            System.out.println("teste");
         }
+        Cliente clienteNulo = null;
+        clientes.add(clienteNulo); // criando um cliente nulo
     }
 
     public void setNumero(int numero) {
@@ -54,8 +57,22 @@ public class Conta {
     }
 
     public void mostrarClientes(){
-        for(int i = 0; i < cliente.length; i++){
-            System.out.println("Ciente " + i + ": " + cliente[i].toString());
+        for(Cliente cliente: clientes){
+            System.out.println("Ciente: " + cliente.toString());
         }
+    }
+
+    public void mostrarInfo(){
+        String listaClientes = "";
+        for(Cliente cliente : clientes){
+            try {
+                listaClientes += cliente.toString() + "\n      ";
+            } catch (NullPointerException e) {
+                listaClientes += "cliente nulo.\n      ";
+            }
+        }
+        System.out.println("Saldo: " + saldo
+        + "\nLimite: " + limite
+        + "\nClientes: " + listaClientes);
     }
 }
